@@ -15,5 +15,6 @@ void Label::Update()
 }
 void Label::Draw(SDL_Renderer *const Renderer)
 {
-	Image.Render(Renderer, Position);
+	if(Visible)
+		Image.Render(Renderer, Position);
 }

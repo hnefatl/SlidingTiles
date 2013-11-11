@@ -18,8 +18,11 @@ public:
 	static Colour SelectedColour;
 	static Colour UnselectedColour;
 
-	const static unsigned int WindowWidth;
-	const static unsigned int WindowHeight;
+	static unsigned int WindowWidth;
+	static unsigned int WindowHeight;
+
+	static unsigned int TileWidth;
+	static unsigned int TileHeight;
 
 protected:
 	static std::string FilePath;

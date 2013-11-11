@@ -29,6 +29,8 @@ public:
 
 	SDL_Window *const GetWindow();
 
+	void SetSize(const unsigned int &Width, const unsigned int &Height);
+
 	unsigned int GetWidth() const;
 	unsigned int GetHeight() const;
 

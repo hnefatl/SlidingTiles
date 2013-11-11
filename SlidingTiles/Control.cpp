@@ -4,6 +4,7 @@
 
 Control::Control()
 {
+	Visible=true;
 	CurrentColour=Settings::UnselectedColour;
 }
 
@@ -19,10 +20,9 @@ bool Control::Load(const std::string &ImagePath, SDL_Renderer *const Renderer)
 
 	return true;
 }
-bool Control::Load(const std::string &FontPath, const std::string &Text, const unsigned int &PtSize, const Colour &Colour,
-		SDL_Renderer *const Renderer)
+bool Control::Load(const std::string &FontPath, const std::string &Text, const unsigned int &PtSize, SDL_Renderer *const Renderer)
 {
-	if(!Image.Load(Text, FontPath, PtSize, Colour, Renderer))
+	if(!Image.Load(Text, FontPath, PtSize, Colour(0xFF, 0xFF, 0xFF), Renderer))
 	{
 		return false;
 	}
@@ -55,4 +55,13 @@ Colour Control::GetColour() const
 void Control::SetColour(const Colour &Colour)
 {
 	this->CurrentColour=Colour;
+}
+
+bool Control::IsVisible() const
+{
+	return Visible;
+}
+void Control::SetVisible(const bool &Visible)
+{
+	this->Visible=Visible;
 }

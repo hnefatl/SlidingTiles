@@ -77,6 +77,11 @@ SDL_Window *const SDLWindow::GetWindow()
 	return Window;
 }
 
+void SDLWindow::SetSize(const unsigned int &Width, const unsigned int &Height)
+{
+	SDL_SetWindowSize(Window, Width, Height);
+}
+
 unsigned int SDLWindow::GetWidth() const
 {
 	return Width;

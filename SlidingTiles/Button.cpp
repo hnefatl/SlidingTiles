@@ -104,7 +104,8 @@ void Button::Update()
 }
 void Button::Draw(SDL_Renderer *const Renderer)
 {
-	Image.Render(Renderer, Position);
+	if(Visible)
+		Image.Render(Renderer, Position);
 }
 
 bool Button::IsSelected() const

@@ -15,8 +15,7 @@ public:
 	
 
 	virtual bool Load(const std::string &ImagePath, SDL_Renderer *const Renderer);
-	virtual bool Load(const std::string &FontPath, const std::string &Text, const unsigned int &PtSize, const Colour &Colour,
-		SDL_Renderer *const Renderer);
+	virtual bool Load(const std::string &FontPath, const std::string &Text, const unsigned int &PtSize, SDL_Renderer *const Renderer);
 
 	virtual bool HandleEvents(const SDL_Event &Event)=0;
 	virtual void Update()=0;
@@ -30,7 +29,12 @@ public:
 	Colour GetColour() const;
 	void SetColour(const Colour &Colour);
 
+	bool IsVisible() const;
+	void SetVisible(const bool &Visible);
+
 protected:
+	bool Visible;
+
 	Texture Image;
 	Rect Position;
 

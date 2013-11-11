@@ -37,6 +37,7 @@ bool Settings::Load()
 					SelectedColour.a=255;
 					SelectedColour.r=atoi(Parts[1].c_str());
 					SelectedColour.g=atoi(Parts[2].c_str());
+					SelectedColour.b=atoi(Parts[3].c_str());
 				}
 				else if(Parts[0]=="UnselectedColour")
 				{
@@ -45,7 +46,17 @@ bool Settings::Load()
 					UnselectedColour.r=atoi(Parts[1].c_str());
 					UnselectedColour.g=atoi(Parts[2].c_str());
 					UnselectedColour.b=atoi(Parts[3].c_str());
-					UnselectedColour.b=atoi(Parts[3].c_str());
+				}
+			}
+			else if(Parts.size()==2)
+			{
+				if(Parts[0]=="TileWidth")
+				{
+					TileWidth=atoi(Parts[1].c_str());
+				}
+				else if(Parts[0]=="TileHeight")
+				{
+					TileHeight=atoi(Parts[1].c_str());
 				}
 			}
 		}
@@ -74,8 +85,10 @@ bool Settings::Save()
 		return false;
 	}
 
-	Out<<"SelectedColour: "<<(int)SelectedColour.r<<" "<<(int)SelectedColour.g<<" "<<(int)SelectedColour.b;
-	Out<<"UnselectedColour: "<<(int)UnselectedColour.r<<" "<<(int)UnselectedColour.g<<" "<<(int)UnselectedColour.b;
+	Out<<"SelectedColour: "<<(int)SelectedColour.r<<" "<<(int)SelectedColour.g<<" "<<(int)SelectedColour.b<<std::endl;
+	Out<<"UnselectedColour: "<<(int)UnselectedColour.r<<" "<<(int)UnselectedColour.g<<" "<<(int)UnselectedColour.b<<std::endl;
+	Out<<"TileWidth: "<<TileWidth<<std::endl;
+	Out<<"TileHeight: "<<TileHeight<<std::endl;
 
 	Out.close();
 
@@ -119,10 +132,13 @@ std::vector<std::string> Settings::Split(const std::string &Input, const std::st
 	return Parts;
 }
 
-const unsigned int Settings::WindowWidth=600;
-const unsigned int Settings::WindowHeight=600;
-
 Colour Settings::SelectedColour;
 Colour Settings::UnselectedColour;
+
+unsigned int Settings::WindowWidth=600;
+unsigned int Settings::WindowHeight=600;
+
+unsigned int Settings::TileWidth;
+unsigned int Settings::TileHeight;
 
 std::string Settings::FilePath;

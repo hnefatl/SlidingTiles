@@ -17,6 +17,23 @@ public:
 	{
 		return (SDL_Point)*this;
 	}
+	
+	Point operator +(const Point &One)
+	{
+		return Point(x+One.x, y+One.y);
+	}
+	Point operator -(const Point &One)
+	{
+		return Point(x-One.x, y-One.y);
+	}
+	Point operator *(const Point &One)
+	{
+		return Point(x*One.x, y*One.y);
+	}
+	Point operator /(const Point &One)
+	{
+		return Point(x*One.x, y*One.y);
+	}
 };
 
 #endif
