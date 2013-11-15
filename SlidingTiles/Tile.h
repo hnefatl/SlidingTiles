@@ -11,9 +11,12 @@ public:
 	Tile();
 	Tile(Texture *const SourceImage);
 
-	void Swap(const Tile &One);
+	void Swap(Tile &One);
 
-	void 
+	void Update();
+	void Draw(SDL_Renderer *const Renderer);
+
+	void Move(const Rect &To);
 
 protected:
 	bool Blank;
@@ -21,6 +24,11 @@ protected:
 	Texture *SourceImage;
 	Rect Clip;
 	Rect Position;
+
+	bool Moving;
+	Rect MovingTo;
+
+	static Point Velocity;
 };
 
 #endif

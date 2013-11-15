@@ -44,6 +44,15 @@ public:
 	{
 		return Point(x, y);
 	}
+
+	bool operator ==(const Rect &One) const
+	{
+		return (this->x==One.x && this->y==One.y && this->w==One.w && this->h==One.h);
+	}
+	bool operator !=(const Rect &One) const
+	{
+		return !(*this==One);
+	}
 };
 
 #endif

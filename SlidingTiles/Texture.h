@@ -27,11 +27,11 @@ public:
 
 	void Render(SDL_Renderer *const Renderer, const Point &Position);
 	void Render(SDL_Renderer *const Renderer, const Point &Position, const SDL_RendererFlip &Flip);
-	void Render(SDL_Renderer *const Renderer, const Point &Position, const double &Angle, Point *const Centre);
-	void Render(SDL_Renderer *const Renderer, const Point &Position, const double &Angle, Point *const Centre, const SDL_RendererFlip &Flip);
-	void Render(SDL_Renderer *const Renderer, const Point &Position, Rect *const Clip);
-	void Render(SDL_Renderer *const Renderer, const Point &Position, Rect *const Clip, const double &Angle, Point *const Centre);
-	void Render(SDL_Renderer *const Renderer, const Point &Position, Rect *const Clip, const double &Angle, Point *const Centre, const SDL_RendererFlip &Flip);
+	void Render(SDL_Renderer *const Renderer, const Point &Position, const double &Angle, const Point &Centre);
+	void Render(SDL_Renderer *const Renderer, const Point &Position, const double &Angle, const Point &Centre, const SDL_RendererFlip &Flip);
+	void Render(SDL_Renderer *const Renderer, const Point &Position, const Rect &Clip);
+	void Render(SDL_Renderer *const Renderer, const Point &Position, const Rect &Clip, const double &Angle, const Point &Centre);
+	void Render(SDL_Renderer *const Renderer, const Point &Position, const Rect &Clip, const double &Angle, const Point &Centre, const SDL_RendererFlip &Flip);
 
 	void SetColour(const Colour &Colour);
 	void SetBlendMode(const SDL_BlendMode &Mode);

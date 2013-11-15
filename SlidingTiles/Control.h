@@ -13,7 +13,6 @@ class Control
 public:
 	Control();
 	
-
 	virtual bool Load(const std::string &ImagePath, SDL_Renderer *const Renderer);
 	virtual bool Load(const std::string &FontPath, const std::string &Text, const unsigned int &PtSize, SDL_Renderer *const Renderer);
 

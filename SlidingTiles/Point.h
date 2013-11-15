@@ -7,6 +7,11 @@ class Point
 	: public SDL_Point
 {
 public:
+	Point()
+	{
+		this->x=0;
+		this->y=0;
+	}
 	Point(const int &x, const int &y)
 	{
 		this->x=x;

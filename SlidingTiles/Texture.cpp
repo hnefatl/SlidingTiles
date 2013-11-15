@@ -93,35 +93,35 @@ Texture *Texture::Create(const std::string &Text, const std::string &FontFile, c
 
 void Texture::Render(SDL_Renderer *const Renderer, const Point &Position)
 {
-	return Render(Renderer, Position, NULL, 0.0, NULL, SDL_RendererFlip());
+	return Render(Renderer, Position, Rect(), 0.0, Point(0, 0), SDL_RendererFlip());
 }
 void Texture::Render(SDL_Renderer *const Renderer, const Point &Position, const SDL_RendererFlip &Flip)
 {
-	return Render(Renderer, Position, NULL, 0.0, NULL, Flip);
+	return Render(Renderer, Position, Rect(), 0.0, Point(0, 0), Flip);
 }
-void Texture::Render(SDL_Renderer *const Renderer, const Point &Position, const double &Angle, Point *const Centre)
+void Texture::Render(SDL_Renderer *const Renderer, const Point &Position, const double &Angle, const Point &Centre)
 {
-	return Render(Renderer, Position, NULL, Angle, Centre, SDL_RendererFlip());
+	return Render(Renderer, Position, Rect(), Angle, Centre, SDL_RendererFlip());
 }
-void Texture::Render(SDL_Renderer *const Renderer, const Point &Position, const double &Angle, Point *const Centre, const SDL_RendererFlip &Flip)
+void Texture::Render(SDL_Renderer *const Renderer, const Point &Position, const double &Angle, const Point &Centre, const SDL_RendererFlip &Flip)
 {
-	return Render(Renderer, Position, NULL, Angle, Centre, Flip);
+	return Render(Renderer, Position, Rect(), Angle, Centre, Flip);
 }
-void Texture::Render(SDL_Renderer *const Renderer, const Point &Position, Rect *const Clip)
+void Texture::Render(SDL_Renderer *const Renderer, const Point &Position, const Rect &Clip)
 {
-	return Render(Renderer, Position, Clip, 0.0, NULL, SDL_RendererFlip());
+	return Render(Renderer, Position, Clip, 0.0, Point(0, 0), SDL_RendererFlip());
 }
-void Texture::Render(SDL_Renderer *const Renderer, const Point &Position, Rect *const Clip, const double &Angle, Point *const Centre)
+void Texture::Render(SDL_Renderer *const Renderer, const Point &Position, const Rect &Clip, const double &Angle, const Point &Centre)
 {
 	return Render(Renderer, Position, Clip, Angle, Centre, SDL_RendererFlip());
 }
-void Texture::Render(SDL_Renderer *const Renderer, const Point &Position, Rect *const Clip, const double &Angle, Point *const Centre, const SDL_RendererFlip &Flip)
+void Texture::Render(SDL_Renderer *const Renderer, const Point &Position, const Rect &Clip, const double &Angle, const Point &Centre, const SDL_RendererFlip &Flip)
 {
 	SDL_Rect RenderQuad=Rect(Position);
-	if(Clip!=NULL)
+	if(Clip!=Rect())
 	{
-		RenderQuad.w=Clip->w;
-		RenderQuad.h=Clip->h;
+		RenderQuad.w=Clip.w;
+		RenderQuad.h=Clip.h;
 	}
 	else
 	{
@@ -129,7 +129,7 @@ void Texture::Render(SDL_Renderer *const Renderer, const Point &Position, Rect *
 		RenderQuad.h=Height;
 	}
 
-	SDL_RenderCopyEx(Renderer, Image, Clip, &RenderQuad, Angle, Centre, Flip);
+	SDL_RenderCopyEx(Renderer, Image, &Clip, &RenderQuad, Angle, &Centre, Flip);
 }
 
 void Texture::SetColour(const Colour &Colour)
