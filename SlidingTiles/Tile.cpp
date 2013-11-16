@@ -20,15 +20,24 @@ void Tile::Swap(Tile &One)
 
 void Tile::Move(const Rect &To)
 {
-	Moving=true;
-	MovingTo=To;
+	if(!Moving)
+	{
+		Moving=true;
+		MovingTo=To;
+		OriginalPosition=Position;
+	}
 }
 
 void Tile::Update()
 {
 	if(Moving)
 	{
-
+		if(Position==MovingTo)
+		{
+			MovingTo=false;
+		}
+		Position.x+=(MovingTo.x-OriginalPosition.x)/(int)FramesToMove;
+		Position.y+=(MovingTo.y-OriginalPosition.y)/(int)FramesToMove;
 	}
 }
 void Tile::Draw(SDL_Renderer *const Renderer)
@@ -39,4 +48,4 @@ void Tile::Draw(SDL_Renderer *const Renderer)
 	}
 }
 
-Point Tile::Velocity=Point();
+unsigned int Tile::FramesToMove=10;

@@ -27,8 +27,9 @@ protected:
 
 	bool Moving;
 	Rect MovingTo;
+	Rect OriginalPosition;
 
-	static Point Velocity;
+	static unsigned int FramesToMove;
 };
 
 #endif
